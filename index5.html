@@ -1,0 +1,54 @@
+<!DOCTYPEhtml>
+  <html>
+
+  <head>
+    <meta charset="utf-8">
+      <title></title>
+  </head>
+
+  <body>
+    <input type="text" name="calculator" id="input" value=""><br>
+
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">1</button>
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">2</button>
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">3</button><br>
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">4</button>
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">5</button>
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">6</button><br>
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">7</button>
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">8</button>
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">9</button><br>
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">0</button>
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">+</button>
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">-</button><br>
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">*</button>
+    <button class="btn" type="button" name="button" onClick="getNum(this.innerHTML)">/</button>
+    <button class="result" type="button" name="result" onclick="calcTotal()">=</button>
+
+    <button class="btn" type="button" name="button" onClick="reset()">Reset</button>
+
+    <script type="text/javascript">
+
+      var result = document.getElementsByName("result")[0];
+      var calculator = document.getElementsByName("calculator")[0];
+      var input = document.getElementById("input");
+
+      input.value = "";
+
+      function getNum(num){
+        input.value += num;
+      }
+
+      function reset(){
+        input.value = "";
+      }
+
+
+      var calcTotal = function() {
+        calculator.value = eval(calculator.value);
+      }
+
+    </script>
+  </body>
+
+  </html>

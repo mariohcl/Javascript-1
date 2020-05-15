@@ -1,0 +1,120 @@
+<!DOCTYPEhtml>
+  <html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JSBasics</title>
+    <style>
+      .todo {
+        float: left;
+        cursor: pointer;
+      }
+
+      .done {
+        float: left;
+        margin-left: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form class="" action="index.html" method="post">
+
+    <ol class="todo" id="todo">
+      <h3>ToDo:</h3>
+    </ol>
+    <ol class="done" id="done">
+      <h3>Done:</h3>
+    </ol>
+  </form>
+
+    <script>
+      var list = [{
+        "completed": false,
+        "id": 1,
+        "title": "Delectus aut autem",
+      }, {
+        "completed": false,
+        "id": 2,
+        "title": "Quis ut nam facilis et officia qui",
+      }, {
+        "completed": false,
+        "id": 3,
+        "title": "Fugiat veniam minus",
+      }, {
+        "completed": true,
+        "id": 4,
+        "title": "Et porro tempora",
+      }, {
+        "completed": false,
+        "id": 5,
+        "title": "Laboriosam mollitia et enim quasi adipisci quia providentillum",
+      }, {
+        "completed": false,
+        "id": 6,
+        "title": "Qui ullam ratione quibusdam voluptatem quia omnis",
+      }, {
+        "completed": false,
+        "id": 7,
+        "title": "Illo expedita consequatur quia in",
+        "userId": 1
+      }, {
+        "completed": true,
+        "id": 8,
+        "title": "Quo adipisci enim quam ut ab",
+      }, {
+        "completed": false,
+        "id": 9,
+        "title": "Molestiae perspiciatis ipsa",
+      }, {
+        "completed": true,
+        "id": 10,
+        "title": "Illo est ratione doloremque quia maiores aut",
+      }];
+
+      var count = 0;
+      var bol = "";
+
+
+
+      var todo = document.getElementById('todo');
+
+      //
+
+
+      list.forEach((key, value, map) => {
+        bol = list[count]["completed"];
+        if (bol) {
+          document.getElementById('done').appendChild(document.createElement("li")).appendChild(document.createTextNode(bol));
+
+        } else {
+          todo.appendChild(document.createElement("li")).appendChild(document.createTextNode(bol));
+
+          var checkbox = document.createElement('input');
+          checkbox.type = "checkbox";
+          checkbox.name = "name";
+          checkbox.value = "value";
+          checkbox.id = "id" + count;
+          checkbox.onclick=completeTask;
+          todo.lastChild.appendChild(checkbox);
+        }
+        count += 1;
+
+      });
+
+
+      function completeTask(e) {
+
+        if ( document.getElementById(this.id).checked){
+          document.getElementById('done').appendChild(document.createElement("li")).appendChild(document.createTextNode(bol));
+          // e.target.parentElement.removeChild(e.target);
+          // document.getElementById(this.id).parentNode.removeChild(document.getElementById(this.id));
+          document.getElementById(this.id).parentNode.parentNode.removeChild(e.target.parentNode);
+        }
+
+      }
+    </script>
+  </body>
+
+  </html>
